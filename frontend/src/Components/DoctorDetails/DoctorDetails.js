@@ -1,10 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { InnerLayout } from "../../styles/Layouts";
-import firebase from "firebase/compat/app";
-import "firebase/compat/firestore";
-import { db } from "../../firebase";
-import { collection, getDocs } from "firebase/firestore";
 
 const times = [
     { "id": 1, "time": "10:00 AM", "available": true },
@@ -16,11 +12,7 @@ const times = [
   
 
 function DoctorDetails({ DoctorDet }) {
-  const [disable, setDisable] = useState(false);
-  const [selectedTime, setSelectedTime] = useState(null);
-
   const handleBookNow = (time) => {
-    setSelectedTime(time);
     console.log("Book Now clicked for time:", time);
   };
 
@@ -33,7 +25,7 @@ function DoctorDetails({ DoctorDet }) {
             <img
               class="w-24 h-24 mb-3 rounded-full shadow-lg"
               src={DoctorDet.imageUri}
-              alt="Bonnie image"
+              alt="Doctor"
             />
             <h5 class="mb-1 text-xl font-medium text-gray-900">
               {DoctorDet.name}

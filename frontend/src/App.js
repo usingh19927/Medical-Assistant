@@ -11,12 +11,10 @@ import "./index.css";
 
 function App() {
   const [active, setActive] = useState(1);
-  const [fil, setFil] = useState([]);
+
   const updateActive = (activeState) => {
     setActive(activeState);
   };
-
-  const updateFilter = (fils) => {};
 
   const displayData = () => {
     switch (active) {

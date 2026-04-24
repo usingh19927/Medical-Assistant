@@ -1,10 +1,8 @@
 import React, { useState, useContext } from "react";
 import styled from "styled-components";
-import { InnerLayout } from "../../styles/Layouts";
 import AIConsult from "./AIConsult";
 import { notes } from "../../utils/Icons";
 import { FilterContext } from "../../context/FilterContext";
-import { AIContext } from "../../context/AIContext";
 
 let DiseaseMapping = {
   Psoriasis: "Dermatologist",
@@ -33,7 +31,7 @@ let DiseaseMapping = {
 };
 
 function SymptomAnalysis({ updateActive }) {
-  const { doctorSpec, setDoctorSpec } = useContext(FilterContext);
+  const { setDoctorSpec } = useContext(FilterContext);
 
   const [selectedSymptoms, setSelectedSymptoms] = useState([]);
   const [submitted, setSubmitted] = useState(false);
@@ -95,7 +93,7 @@ function SymptomAnalysis({ updateActive }) {
 
   const handleConsultDoctor = () => {
     console.log("diagnosis : ", diagnosis);
-    if (diagnosis != "undefined" || diagnosis != undefined) {
+    if (diagnosis !== "undefined" || diagnosis !== undefined) {
       console.log(DiseaseMapping[diagnosis]);
       setDoctorSpec(DiseaseMapping[diagnosis]);
     }
@@ -237,7 +235,7 @@ function SymptomAnalysis({ updateActive }) {
         <Diagnosis>
           <Dig>
             <p>{notes}</p>
-            {diagnosis != "undefined" ? (
+            {diagnosis !== "undefined" ? (
               <>
                 <p>
                   It seems like you may be experiencing symptoms of{" "}

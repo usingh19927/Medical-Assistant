@@ -1,18 +1,16 @@
 import React, { useEffect, useState, useContext } from "react";
 import styled from "styled-components";
 import { InnerLayout } from "../../styles/Layouts";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaStar } from "react-icons/fa";
-import firebase from "firebase/compat/app";
-import "firebase/compat/firestore";
 import { db } from "../../firebase";
 import { collection, getDocs } from "firebase/firestore";
 import DoctorDetails from "../DoctorDetails/DoctorDetails";
 import { FilterContext } from "../../context/FilterContext";
 
 function ConsultDoctor({ updateFilter }) {
-  const { doctorSpec, setDoctorSpec } = useContext(FilterContext);
+  const { doctorSpec } = useContext(FilterContext);
 
   const [doctors, setDoctors] = useState([]);
   const [filteredItems, setFilteredItems] = useState(doctors);
@@ -39,7 +37,7 @@ function ConsultDoctor({ updateFilter }) {
       }
     };
     fetchData();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   const notify = (item) => {
     setDoctorDet(item);
@@ -72,7 +70,7 @@ function ConsultDoctor({ updateFilter }) {
 
   useEffect(() => {
     filterItems();
-  }, [selectedDoctor, doctors]);
+  }, [selectedDoctor, doctors]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <>

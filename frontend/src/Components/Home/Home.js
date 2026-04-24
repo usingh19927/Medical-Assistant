@@ -1,9 +1,5 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { InnerLayout } from '../../styles/Layouts';
-import SymptomAnalysis from '../SymptomAnalysis/SymptomAnalysis';
-import MentalWellness from '../MentalWellness/MentalWellness';
-import ConsultDoctor from '../ConsultDoctor/ConsultDoctor';
 import hero from '../../img/hero.png'
 
 function Home({ updateActive }) {

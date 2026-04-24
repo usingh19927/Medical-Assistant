@@ -33,7 +33,7 @@ function AIConsult({ symptoms, diagnosis }) {
   useEffect(() => {
     setInput(prompt);
     onSent(prompt);
-  }, []);
+  }, [onSent, prompt, setInput]);
 
   return (
     <MentStyled>
