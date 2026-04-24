@@ -1,4 +1,17 @@
 {
+  "name": "heal-smart",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "server/frontend"
+  ],
+  "scripts": {
+    "setup": "bash ./setup-all.sh",
+    "start": "bash ./start-all.sh",
+    "install-all": "npm install --workspaces",
+    "backend": "cd server && python3 app.py",
+    "frontend": "cd frontend && npm start"
+  },
   "dependencies": {
     "@google/generative-ai": "^0.8.0",
     "firebase": "^10.11.0"
